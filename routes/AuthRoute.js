@@ -37,7 +37,7 @@ route.post("/register", async (req, res) => {
 
     // //Already exist
     const isUserExist = await User.findOne({ mob: req.body.mob });
-    if (isUserExist) return response({ res, code: 400, msg: "Mobile number already exist" });
+    if (isUserExist) return response({ res, code: 409, msg: "Mobile number already exist" });
 
     // //hash password
     const salt = await bcrypt.genSalt(10);

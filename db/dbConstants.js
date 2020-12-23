@@ -1,4 +1,6 @@
 module.exports={
     DB_NAME:"ecommerce",
-    USERS:"users"
+    USERS:"users",
+    ADS:"ads",
+    SHOPS:"shops",
 }
