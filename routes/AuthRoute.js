@@ -7,23 +7,27 @@ const User = require("../models/User");
 
 ////////////////////////// LOGIN USER /////////////////////
 route.post("/login", async (req, res) => {
-    const user = await User.findOne({ mob: req.body.mob, role: req.body.role });
-    if (!user) return response({ res, code: 400, msg: "Invalid mobile number or password" });
+    try {
+        const user = await User.findOne({ mob: req.body.mob});
+        if (!user) throw "Invalid mobile number or password.";
 
-    //password validation
-    const validPwd = await bcrypt.compare(req.body.pwd, user.pwd);
-    if (!validPwd) return response({ res, code: 400, msg: "Invalid mobile number or password" });
+        //password validation
+        const validPwd = await bcrypt.compare(req.body.pwd, user.pwd);
+        if (!validPwd) throw "Invalid mobile number or password";
 
-    //token
-    var token = jwt.sign({ id: user._id }, process.env.TOKEN);
-    return response({
-        res, data: {
-            userId: user._id,
-            name: user.name,
-            token,
-        }
-    })
-
+        //token
+        var token = jwt.sign({ id: user._id }, process.env.TOKEN);
+        return response({
+            res, data: {
+                userId: user._id,
+                name: user.name,
+                role:user.role,
+                token,
+            }
+        })
+    } catch (err) {
+        return response({ res, code: 400, msg: err.toString() });
+    }
 });
 
 
@@ -64,6 +68,11 @@ route.post("/reset", async (req, res) => {
     return response({ res, msg: "Password updated" });
 
 });
+
+///////////////LOGOUT//////////////////////
+// route.get("/logout", (req, res) => {
+//     return response({ res, msg: "Logout successful" })
+// })
 
 
 module.exports = route;

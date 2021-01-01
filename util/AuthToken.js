@@ -8,6 +8,6 @@ module.exports = async (req,res,next)=>{
     await jwt.verify(token,process.env.TOKEN)
     next()
     }catch(err){
-        return response({res,code:403,msg:err});
+        return response({res,code:403,msg:err.toString()});
     }
 }

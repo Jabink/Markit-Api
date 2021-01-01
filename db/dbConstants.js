@@ -3,4 +3,6 @@ module.exports={
     USERS:"users",
     ADS:"ads",
     SHOPS:"shops",
+    CATEGORIES:"categories",
+    PRODUCTS:"products",
 }
