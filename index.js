@@ -15,6 +15,6 @@ app.use("/api/product",require("./routes/Product"));
 app.use("/api/shop/ads", require("./routes/AdsRoute"));
 app.use("/api/auth", require("./routes/AuthRoute"));
 app.use("/upload", express.static("./uploads"));
-app.get("/",(req,res)=> res.send("Page"));
+app.get("/",(req,res)=> res.send("Page opened"));
 
 app.listen(3000 || process.env.PORT, () => console.log("Server running"))
