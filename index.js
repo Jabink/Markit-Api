@@ -17,4 +17,4 @@ const app = express();
 // app.use("/upload", express.static("./uploads"));
 app.get("/",(req,res)=> res.send("Page opened"));
 
-app.listen(3000 || process.env.PORT, () => console.log("Server running"))
+app.listen(process.env.PORT || 3000, () => console.log("Server running"))
