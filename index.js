@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const fileUpload = require("express-fileupload");
 const app = express();
@@ -14,6 +14,7 @@ app.use("/api/category",require("./routes/Category"));
 app.use("/api/product",require("./routes/Product"));
 app.use("/api/shop/ads", require("./routes/AdsRoute"));
 app.use("/api/auth", require("./routes/AuthRoute"));
+///uploads folder
 app.use("/upload", express.static("./uploads"));
 app.get("/",(req,res)=> res.send("Page opened"));
 
