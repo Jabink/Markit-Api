@@ -4,7 +4,6 @@
   "description": "api for markit ecommerce app",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js",
     "start":"node index.js"
   },
   "repository": {
