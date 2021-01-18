@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/Jabink/Markit-Api/issues"
   },
+  "engines": {
+    "node": "14.15.3"
+  },
   "homepage": "https://github.com/Jabink/Markit-Api#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
